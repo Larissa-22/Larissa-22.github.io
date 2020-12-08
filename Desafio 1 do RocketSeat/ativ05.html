@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset= "utf8">
+     <title> Aula 04:atividade 5 do desafio rocketseat </title>
+</head>
+
+<body>
+    <p>Escreva uma função que produza o seguinte resultado:</p>
+    
+</body>
+
+<script>
+    var usuarios = [
+        {
+            nome: "Diego",
+            habilidades: ["Javascript", "ReactJS", "Redux"]
+        },
+        {
+            nome: "Gabriel",
+            habilidades: ["VueJS", "Ruby on Rails", "Elixir"]
+        }
+    ];
+    /* let iterable=usuarios;
+    for(let usuarios of iterable){
+          console.log("O " + usuario[] + "possui as habilidades: " + );
+    } */
+    for (let usuario of usuarios){
+        console.log("O " + usuario.nome + " possui as habilidades: " + usuario.habilidades.join(", "));
+    }
+    /* O Diego possui as habilidades: Javascript, ReactJS, Redux
+    O Gabriel possui as habilidades: VueJS, Ruby on Rails, Elixir */
+
+</script>
+
+</html>
