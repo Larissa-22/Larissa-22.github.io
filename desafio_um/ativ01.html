@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset= "utf8">
+     <title> Aula 04:atividade 1 do desafio rocketseat </title>
+</head>
+
+<body>
+    <p id="msg">
+    </p>
+</body>
+
+<script>
+     var endereco = {
+        rua: "Rua dos Pinheiros",
+        numero: 1293,
+        bairro: "Centro",
+        cidade: "São Paulo",
+        uf: "SP"
+     };
+
+     var resultado;
+     resultado = "O usuário mora em " + endereco.cidade + "/" + endereco.uf + ", no bairro " + endereco.bairro + ", na " + endereco.rua + " com n°" + endereco.numero + ".";
+     document.getElementById("msg").innerHTML=resultado;
+</script>
+
+</html>
