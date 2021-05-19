@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>calculadora</title>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap">
+    <link rel="stylesheet" href="../estilo.css">
+    <h1>Exercício 1</h1>
+</head>
+<body>
+    <h2>Monte uma calculadora que receba dois valores numéricos e um operador aritmético. Sua calculadora deve realizar as seguintes operações (soma, subtração, multiplicação e divisão):</h2>    
+    <input type="number" id="n1" placeholder="digite 1° valor">
+    <input type="number" id="n2" placeholder="digite 2° valor">
+    <select id="calcul"> 
+        <option>Soma</option>
+        <option>Subtração</option>
+        <option>Multiplicação</option>
+        <option>Divisão</option>
+    </select>
+    <br><br>
+    <button type="button" id="botao">Executar</button>
+    <p id="resul"></p>
+    <script>
+        $(function()
+        {
+            $("#botao").click(function(){
+                let n1 = $("#n1").val();
+                let n2 = $("#n2").val();
+                let calcul = $("#calcul").val();
+                $("#resul").text(n1 + simb(calcul) + n2 + "=" + operacao(n1,n2,calcul));
+            })
+            function operacao (n1, n2, calcul2)
+            {
+                n1 = parseFloat(n1);
+                n2 = parseFloat(n2);
+                switch(calcul2)
+                {
+                    case "Soma": return n1+n2; 
+                    break;
+                    case "Subtração": return n1-n2; 
+                    break;
+                    case "Multiplicação": return n1*n2; 
+                    break;
+                    case "Divisão": return n1/n2; 
+                    break;
+                }
+            }
+        })
+        function simb (calcul3)
+        {
+            switch(calcul3)
+                {
+                    case "Soma": return '+'; 
+                    break;
+                    case "Subtração": return "-"; 
+                    break;
+                    case "Multiplicação": return 'x'; 
+                    break;
+                    case "Divisão": return '/'; 
+                    break;
+                }
+            }
+</script>
+<footer>
+        <a class="retorno" href="../trimestres/3triJS.html">Voltar</a>
+        
+</footer>
+</body>
+</html>

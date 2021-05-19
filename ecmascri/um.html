@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>tarefa 1</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap">
+    <link rel="stylesheet" href="../estilo.css">
+    <h1>Exercício 1:</h1>
+</head>
+<body>
+    <h2>Crie um script que implemente as funções min, max, uniq e sortNum. Tais funções devem: retornar o valor mínimo (min) e máximo (max) de um array de números, retornar o array sem repetições(uniq) e ordenar o array numérico (sortNum).</h2>
+    <h3>Observação: digitar o array entre vírgulas:</h3>
+	<input type="text" id="textarray" placeholder="Digite o array">
+    <button type="button" id="botao">Executar</button>
+    <p id="resul"></p>
+<script>
+
+        $(function () {
+            $("#botao").click(function () {
+                let dados_array = $("#textarray").val();
+                dados_array = dados_array.replace(/\s+/g, '');
+                let array = dados_array.split(",");
+                let tam = array.length;
+                if (array[tam - 1] == "") {
+                    array.pop();
+                }
+                $("#resul").html("<br>Valor mínimo: " + minim(array) + "<br> Valor máximo: " + maxim(array) + "<br> Array sem números repetidos: " + exclusivo(array) + "<br> Array em ordem numérica: " + ordem_cresc(array));
+            })
+            function minim(vetor) {
+                let min;
+                vetor.forEach(function (num) {
+                    if (num == Math.min(...vetor)) {
+                        min = num;
+                    }
+                });
+                return min;
+            }
+            function maxim(vetor) {
+                let max;
+                vetor.forEach(function (num) {
+                    if (num == Math.max(...vetor)) {
+                        max = num;
+                    }
+                });
+                return max;
+            }
+            function exclusivo(vetor) {
+                let vetor_exclusi = [...new Set(vetor)];
+                return vetor_exclusi.join(",");
+            }
+            function ordem_cresc(vetor) {
+                return vetor
+                    .sort(function (a, b) {
+                        return a - b;
+                    })
+                    .join(",");
+            }
+        })
+</script>
+<footer>
+        <a class="retorno" href="../trimestres/3triJS.html">Voltar</a>
+        
+</footer>
+</body>
+</html>

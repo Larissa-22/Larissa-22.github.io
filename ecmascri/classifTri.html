@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>tringulos</title>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap">
+    <link rel="stylesheet" href="../estilo.css">
+    <h1>Exercício 3</h1>
+</head>
+<body>
+    <h2>Informe os 3 valores correspondentes ao lado de um triângulo e descubra a sua classificação.</h2>
+    <input type="number" id="n1" placeholder="digite 1º lado">
+    <input type="number" id="n2" placeholder="digite 2º lado">
+    <input type="number" id="n3" placeholder="digite 3º lado">
+    <button type="button" id="botao">Executar</button>
+    <p id="resul"></p>
+<script>
+     $(function()
+        {
+            $("#botao").click(function(){
+                let n1 = $("#n1").val();
+                let n2 = $("#n2").val();
+                let n3 = $("#n3").val();
+                if(n1<=0 || n2<=0 || n3<=0)
+                    $("#resul").text("valores inválidos");
+                else
+                    $("#resul").text(triangulo(n1,n2,n3));
+                function triangulo(n1,n2,n3)
+                    {
+                        n1 = parseFloat(n1);
+                        n2 = parseFloat(n2);
+                        n3 = parseFloat(n3);
+                        if(testa(n1, n2, n3)==true)
+                            return classificacao(n1,n2,n3);
+                        else
+                            return "valores inválidos";
+                    }
+                        function modulo (valor)
+                            {
+                                if(valor<0)
+                                    valor=valor*(-1);
+                                return valor;
+                            }
+                        function testa(n1,n2,n3)
+                        {
+                            if(modulo(n2-n3)<n1 && n1<(n2+n3) || modulo(n1-n3)<n2 && n2<(n1+n3) || modulo(n1-n2)<n3 && n3<(n1+n2))
+                                return true;
+                            else
+                                return false;
+                        }                    
+                        function classificacao(n1,n2,n3)
+                        {
+                            if (n1==n2 && n2==n3)
+                                return "O triângulo é equilátero";
+                            if(n1==n2 && n2!=n3 || n1==n3 && n1!=n2 || n2==n3 && n2!=n1)
+                                return "O triângulo é isósceles";
+                            if(n1!=n2 && n1!=n3 && n2!=n3 )
+                                return "O triângulo é escaleno";
+                        }                 
+            })
+        })
+</script>
+<footer>
+        <a class="retorno" href="../trimestres/3triJS.html">Voltar</a>
+        
+</footer>
+</body>
+</html>

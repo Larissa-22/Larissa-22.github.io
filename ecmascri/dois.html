@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>tarefa 1</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap">
+    <link rel="stylesheet" href="../estilo.css">
+    <h1>Exercício 2:</h1>
+</head>
+<body>
+    <h2>Na matemática, a série de Fibonacci é uma sucessão de números inteiros conforme esta sequência: 0, 1, 1, 2, 3, 5, 8, 13 ...</h2>
+	<h2>Crie uma função para exibir a sequência de Fibonacci até a posição n, por exemplo, a série com os quatro primeiros elementos é 0, 1, 1, 2. O valor da entrada e saída são respectivamente um número e um  vetor. Você deve disponibilizar uma página para entrada do número n e sua respectiva saída.</h2>
+	<input type="number" id="txtArr" placeholder="posição desejada">
+    <button type="button" id="botao">Executar</button>
+    <p id="resul"></p>
+<script>
+    $(function(){
+       $("#botao").click(function(){
+          let txtArr = $("#txtArr").val();
+          txtArr = txtArr.replace(/\s+/g, '');
+          let array = txtArr.split(",");
+          $("#resul").html("A sequência fibonacci até " + txtArr + " número(s) corresponde a: " + fibonacci(txtArr));
+       })
+       function fibonacci(d){
+          let array = new Array;
+          array.push(0);
+          let a=0; 
+          let b=1;
+          let c=1;
+          for(let i=0; i<d-1; i++) 
+          {
+            array.push(c);
+            c=a+b;
+            a=b;
+            b=c;
+          }
+          return array.join(",");
+        }
+})
+</script>
+<footer>
+        <a class="retorno" href="../trimestres/3triJS.html">Voltar</a>
+        
+</footer>
+</body>
+</html>

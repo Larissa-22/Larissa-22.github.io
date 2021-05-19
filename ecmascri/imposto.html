@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>imposto</title>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap">
+    <link rel="stylesheet" href="../estilo.css">
+    <h1>Exercício 2</h1>
+</head>
+<body>
+    <h2>Faça um programa que realize o cálculo do imposto de renda de acordo com o salário mensal, baseado nas alíquotas de uma tabela.</h2>
+    <input type="number" id="va1" placeholder="Digite o salário">
+    <button type="button" id="botao">Executar</button>
+    <p id="resul"></p>
+    <script>
+         $(function()
+        {
+            $("#botao").click(function(){
+                let va1 = $("#va1").val();
+                $("#resul").text("O imposto é de R$"+calcTaxa(va1).toFixed(2));
+            })
+            function calcTaxa (va1)
+            {
+                va1=parseFloat(va1);
+                if(va1<=1903.98)
+                    return "A taxa é zero";
+                if(va1>=1903.99 && va1<=2826.65)
+                    return va1*0.075-142.80;
+                if(va1>=2826.66 && va1<=3751.05)
+                    return va1*0.15-354.80;
+                if(va1>=3751.06 && va1<=4664.68)
+                    return va1*0.225-636.13;
+                if(va1>4664.68)
+                    return va1*0.275-869.36;
+            }
+        })
+</script>
+<footer>
+        <a class="retorno" href="../trimestres/3triJS.html">Voltar</a>
+        
+</footer>
+</body>
+</html>
