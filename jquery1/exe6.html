@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap">
+    <link rel="stylesheet" href="../estilo.css">
+	<script>
+        $(function () {
+            $("#data").click(function () {
+                let va = $("#dt").val();
+                if (va != "") {
+                    let d = va.substr(8, 2);
+                    let a = va.substr(0, 4);
+                    let m = va.substr(5, 2);
+                    const agora = new Date();
+                    const nascimento = new Date(a, m - 1, d);
+                    const diff = Math.abs(agora.getTime() - nascimento.getTime());
+                    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+                    $("#txt").text("Essa pessoa tem " + days + " dias de vida!");
+                    $("#dt").val("");
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <h1>Exercício 6:</h1>
+    <h2>Faça um programa que leia uma data de nascimento e retorne quantos dias de vida uma pessoa tem.</h2>
+    <input type="date" id="dt">
+    <button id="data">Executar</button>
+    <p id="txt"></p>
+	<br>
+<footer>
+    <a class="retorno" href="../trimestres/2triJS.html">Voltar</a>
+</footer>	
+</body>
+</html>

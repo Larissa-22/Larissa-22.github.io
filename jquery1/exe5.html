@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>substituir palavra</title>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap">
+    <link rel="stylesheet" href="../estilo.css">
+<script>
+    $(function(){
+        $("#infos").click(function() 
+        {
+            if ($("#txt").val() != "") {
+                let procura=$("#frase").val();
+                let substituir=$("#frase2").val();
+                let texto = $("#txt").val();
+                let array=texto.split(" ");
+                for (i = 0; i < array.length; i++) {
+                    if (array[i] == procura) {
+                        array[i] = substituir;
+                    }
+                }
+                let test = ""
+                test = array.join(" ");
+                $("#textoo").text(test);
+                $("#frase").val("");
+                $("#frase2").val("");
+                $("#txt").val("");
+            }
+
+            else {
+                $("#textoo").text("Digite texto adequado");
+            }
+        })
+    })
+</script>
+</head>
+<body>
+<h1>Exercício 5:</h1>
+<h2>Faça um programa que implemente a funcionalidade substituir em textos, ou seja, terá um campo "procurar" e um campo "substituir". Ao executar, seu programa deverá procurar as ocorrências no texto do valor digitado em "procurar" e trocar pelo valor digitado em "substituir".</h2>
+<input type="text" id="txt" placeholder="Digite o texto" >
+<input type="text" id="frase" placeholder="Procurar palavra">
+<input type="text" id="frase2" placeholder="Substituir por">
+<button id="infos">Executar</button>
+<p id="textoo"></p>
+<br><br>
+<footer>
+    <a class="retorno" href="../trimestres/2triJS.html">Voltar</a>
+</footer>
+</body>
+</html>

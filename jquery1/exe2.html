@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>vogal em negrito</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap">
+    <link rel="stylesheet" href="../estilo.css">
+<script>
+    function vogal(a){
+        a=a.toUpperCase();
+        if (a=="A"||a=="E"||a=="I"||a=="O"||a=="U")
+            return true;
+		else
+            return false;
+    }
+    $(function () {
+        $("#vogal").click(function () {
+            let texto= $("#frase").val();
+            let resul="";
+            for (i=0; i<=texto.length-1; i++){
+                if (vogal(texto[i]))
+                    resul+="<strong>"+texto[i]+"</strong>";
+                if (vogal(texto[i])==0)
+                    resul+=texto[i];
+            }
+            $("#txt").html(resul);
+        })
+    })
+</script>
+</head>
+<body>
+<h1>Exercício 2:</h1>
+<h2>Faça um programa que leia uma frase e escreva abaixo marcando as vogais em negrito.</h2>
+<input type="text" id="frase">
+<button id="vogal">Executar</button>
+<p id="txt"></p>
+<footer>
+    <a class="retorno" href="../trimestres/2triJS.html">Voltar</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap">
+    <link rel="stylesheet" href="../estilo.css">
+    <script>
+        $(function () {
+            $("#data").click(function () {
+                let va = $("#dat").val();
+                if(va != ""){
+                    let d = va.substr(8, 2);
+                    let a = va.substr(0, 4);
+                    let m = va.substr(5, 2);
+                    var mes = ""
+                    switch (m) {
+                        case '01':
+                            mes = "Janeiro"
+                            break;
+                        case '02':
+                            mes = "Fevereiro"
+                            break;
+                        case '03':
+                            mes = "Março"
+                            break;
+                        case '04':
+                            mes = "Abril"
+                            break;
+                        case '05':
+                            mes = "Maio"
+                            break;
+                        case '06':
+                            mes = "Junho"
+                            break;
+                        case '07':
+                            mes = "Julho"
+                            break;
+                        case '08':
+                            mes = "Agosto"
+                            break;
+                        case '09':
+                            mes = "Setembro"
+                            break;
+                        case '10':
+                            mes = "Outubro"
+                            break;
+                        case '11':
+                            mes = "Novembro"
+                            break;
+                        case '12':
+                            mes = "Dezembro"
+                            break;
+                    }
+                    $("#dat").val("");
+                    $("#textoo").text(  d + " de " + mes + " de " + a);
+                }
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <h1>Exercício 7:</h1>
+    <h2>Faça um programa que leia uma data de nascimento em formato de dd/mm/aaaa e escreva por extenso a data. Por exemplo: 03/05/2017 vira "03 de maio de 2017".</h2>
+    <input type="date" id="dat">
+    <button id="data">Executar</button>
+    <p id="textoo"></p>
+	<br>
+<footer>
+    <a class="retorno" href="../trimestres/2triJS.html">Voltar</a>
+</footer>
+</body>
+</html>

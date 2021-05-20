@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>distância datas</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap">
+    <link rel="stylesheet" href="../estilo.css">
+	<script>
+        $(function (){
+            $("#data").click(function () {
+                let va = $("#dat").val();
+                let va2 = $("#dat2").val();
+                if (va == "" || va2 == 0) {
+                    $("#txt").text("Inválida! Tente novamente.")
+
+                }
+                else {
+                    let d1 = va.substr(8, 2);
+                    let a1 = va.substr(0, 4);
+                    let m1 = va.substr(5, 2);
+                    let d2 = va2.substr(8, 2);
+                    let a2 = va2.substr(0, 4);
+                    let m2 = va2.substr(5, 2);
+                    const now = new Date(a1, m1 - 1, d1);
+                    const past = new Date(a2, m2 - 1, d2);
+                    const diff = Math.abs(now.getTime() - past.getTime());
+                    const days = Math.ceil(diff / (1000 * 60 * 60 * 24 * 7));
+                    $("#txt").text("A diferença entre as datas é de " + days + " semana(s)" )
+                    $("#dat").val("");
+                    $("#dat2").val("");
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <h1>Exercício 8:</h1>
+    <h2>Faça um programa que leia duas datas e indique em semanas a distância entre elas. Por exemplo: 02/05/2017 e 02/07/2017 resultado = 8 semanas.</h2>
+    <input type="date" id="dat">
+    <input type="date" id="dat2">
+    <button id="data">Executar</button>
+    <p id="txt"></p>
+	<br>
+<footer>
+    <a class="retorno" href="../trimestres/2triJS.html">Voltar</a>
+</footer>
+</body>
+</html>
